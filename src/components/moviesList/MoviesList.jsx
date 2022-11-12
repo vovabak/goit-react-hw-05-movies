@@ -1,15 +1,18 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { List, Item, Title, Link, Poster } from "./MoviesList.styled";
 
-export const MoviesList = ({ movies, getMovieId }) => {
+export const MoviesList = ({ movies }) => {
     const location = useLocation();
     
     return (
-        <ul>{movies.map(({id, title, poster_path}) =>
-            <li key={id}>
-                <h2><NavLink to={`/movies/:${id}`} state={{ from: location }}>{title}</NavLink></h2>
-                <img src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt={title} />        
-            </li>)
+        <List>{movies.map(({id, title, poster_path}) =>
+            <Item key={id}>
+                <Link to={`/movies/:${id}`} state={{ from: location }}>                    
+                    <Title>{title}</Title>                    
+                    <Poster src={`https://image.tmdb.org/t/p/w200${poster_path}`} alt={title} />                    
+                </Link>    
+            </Item>)
         }
-        </ul>
+        </List>
     )
 }

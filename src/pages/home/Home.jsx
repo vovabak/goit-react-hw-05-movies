@@ -3,8 +3,7 @@ import { getMovieTrends } from "api/Api";
 import { MoviesList } from "components/moviesList/MoviesList";
 
 const Home = () => {
-    const [movies, setMovies] = useState([]);
-    // const [page, setPage] = useState(1);
+    const [movies, setMovies] = useState([]);    
 
     useEffect(() => {        
     
@@ -12,11 +11,9 @@ const Home = () => {
     }, [])    
 
     return (
-        <>
-            <MoviesList
-                movies={movies}                
-            />
-        </>
+        <MoviesList                
+            movies={movies}                
+        />
     )
 }
 
