@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getMovies } from "api/Api";
 import { SearchBar } from "components/searchBar/SearchBar";
 import { MoviesList } from "components/moviesList/MoviesList";
+import { Main } from "./Movies.styled";
 
 const Movies = () => {
     const [query, setQuery] = useState('');
@@ -22,12 +23,12 @@ const Movies = () => {
     }, [query])
 
     return (
-        <>
+        <Main>
             <SearchBar onSubmit={handleSubmit} />
             <MoviesList
                 movies={movies}                
             />
-        </>
+        </Main>
     )
 }
 

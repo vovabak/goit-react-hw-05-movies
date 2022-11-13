@@ -1,4 +1,9 @@
 import { useState } from "react";
+import { AiOutlineSearch } from 'react-icons/ai';
+// import { toast } from 'react-toastify';
+import { IconContext } from "react-icons";
+// import PropTypes from "prop-types";
+import { Form, Button, ButtonLabel, Input } from './SearchBar.styled';
 
 export const SearchBar = ({query: prevQuery, onSubmit}) => {
     const [query, setQuery] = useState('');
@@ -30,11 +35,21 @@ export const SearchBar = ({query: prevQuery, onSubmit}) => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <button>Search</button>
+        <Form onSubmit={handleSubmit}>
+            <Button type="submit">
+                    <ButtonLabel>Search</ButtonLabel>
+                    <IconContext.Provider
+                        value={{
+                                size: '100%',
+                                style: { verticalAlign: 'middle' }
+                            }}>
+                        <AiOutlineSearch />
+                    </IconContext.Provider>
+            </Button>
             <label aria-label="search movie">
-            <input type="text" name='searchQuery' onChange={handleChange}/>
-        </label>
-        </form>
+                <Input type="text" name='searchQuery' onChange={handleChange} placeholder='Find Your favorite movie'/>
+            </label>
+        </Form>
     )
 }
+

@@ -1,16 +1,23 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { Container, Header, Link, Nav } from "./SharedLayout.styled";
+import { SiThemoviedatabase } from 'react-icons/si';
+import { IconContext } from "react-icons";
+import { Container, Header, Link, Nav, Logo } from "./SharedLayout.styled";
 
 export const SharedLayout = () => {
 
   return (
     <Container>
         <Header>
-            <span style={{
-              display: 'block',
-              margin: 'auto 0',
-            }}>Logo</span>
+            <Logo>
+              <IconContext.Provider
+                            value={{
+                                    size: '10%',
+                                    style: { verticalAlign: 'middle' }
+                                }}>
+                            <SiThemoviedatabase />
+              </IconContext.Provider>          
+            </Logo>
             <Nav>
                 <Link to='/' end>Home</Link>
                 <Link to='/movies'>Movies</Link>        

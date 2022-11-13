@@ -7,12 +7,9 @@ export const List = styled.ul`
     max-width: calc(100vw - 40px);
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 10px;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0 auto;    
     padding: 0;
-    list-style: none;
-    margin-left: auto;
-    margin-right: auto;
+    list-style: none;    
     `
 
 export const Item = styled.li`
@@ -41,5 +38,8 @@ export const Link = styled(NavLink)`
 
 export const Poster = styled.img`
     display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
     `
     

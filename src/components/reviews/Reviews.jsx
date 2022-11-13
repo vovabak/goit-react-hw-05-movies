@@ -1,26 +1,20 @@
-import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import { getReview } from "api/Api";
+import { List, Item } from "./Reviews.styled";
 
 const Reviews = () => {
-    const [reviews, setReview] = useState([])
-    const movieId = useOutletContext()
-    
-    useEffect(() => {
-        getReview(movieId).then(res => setReview(res.data.results))
-    }, [movieId])    
+    const reviews = useOutletContext()[2];   
 
-    if (reviews.length === 0) return    
+    if (reviews.length === 0) return
 
     return (
-        <ul>
+        <List>
             {reviews.map(({id, author, content, url}) =>
-                <li key={id}>
+                <Item key={id}>
                     <h3>{author}</h3>
                     <p>{content}</p>
                     <a href={url} target="_blank" rel="noreferrer">See more</a>
-                </li>)}
-        </ul>
+                </Item>)}
+        </List>
     )
 }
 
