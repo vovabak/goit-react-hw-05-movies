@@ -25,6 +25,7 @@ export const Nav = styled.nav`
 export const Logo = styled.span`
     display: block;
     margin: auto 0;
+    width: 30px;
     color: tomato;
     `
 
@@ -33,6 +34,7 @@ export const Link = styled(NavLink)`
     text-decoration: none;
     padding: 10px;    
     color: black;
+    outline: none;
 
         :hover, :focus {
             color: gray;

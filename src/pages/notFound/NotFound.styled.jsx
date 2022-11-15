@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 
-export const Container = styled.div`
-    margin-top: 25vh;
+export const Thumb = styled.div`
+    margin-top: 20vh;
     text-align: center;
     `
 

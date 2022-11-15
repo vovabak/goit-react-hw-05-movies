@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { AiOutlineSearch } from 'react-icons/ai';
-// import { toast } from 'react-toastify';
 import { IconContext } from "react-icons";
-// import PropTypes from "prop-types";
-import { Form, Button, ButtonLabel, Input } from './SearchBar.styled';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import PropTypes from "prop-types";
+import { Form, Button, ButtonLabel, Label, Input } from './SearchBar.styled';
 
-export const SearchBar = ({query: prevQuery, onSubmit}) => {
-    const [query, setQuery] = useState('');
+export const SearchBar = ({searchQuery, onSubmit}) => {
+    const [query, setQuery] = useState(searchQuery);
 
     const handleChange = (e) => {     
-        setQuery(e.currentTarget.value)
+        setQuery(e.currentTarget.value)        
     }
 
     const handleSubmit = (e) => {
@@ -17,15 +17,15 @@ export const SearchBar = ({query: prevQuery, onSubmit}) => {
         
         if (query.trim().toLowerCase() === '') {
 
-            // toast('Please, enter some query')
+            toast('Please, enter some query')
             
-            e.currentTarget.searchQuery.value = ''
+            e.currentTarget.input.value = ''
             return
         }
 
-        if (query === prevQuery) {
+        if (query === searchQuery) {
 
-            // toast('Please, try different query')
+            toast('Please, try different query')
             
             return
         }
@@ -46,10 +46,14 @@ export const SearchBar = ({query: prevQuery, onSubmit}) => {
                         <AiOutlineSearch />
                     </IconContext.Provider>
             </Button>
-            <label aria-label="search movie">
-                <Input type="text" name='searchQuery' onChange={handleChange} placeholder='Find Your favorite movie'/>
-            </label>
+            <Label aria-label="search movie">
+                <Input value={query} type="text" name='input' onChange={handleChange} placeholder='Find Your favorite movie'/>
+            </Label>
         </Form>
     )
 }
 
+SearchBar.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    searchQuery: PropTypes.string.isRequired,
+}

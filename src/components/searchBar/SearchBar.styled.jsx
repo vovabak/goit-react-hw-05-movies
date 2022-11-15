@@ -6,6 +6,7 @@ export const Form = styled.form`
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    padding: 20px 0 0 0;
     width: 100%;
     max-width: 600px;    
     border-radius: 3px;
@@ -13,9 +14,10 @@ export const Form = styled.form`
     `
 
 export const Button = styled.button`
-    display: inline-block;  
-    width: 38px;
-    height: 38px;
+    display: inline-block;
+    margin-left: -40px;
+    width: 40px;
+    height: 40px;
     border: 0;
     color: tomato;
     background-color: inherit;
@@ -43,6 +45,7 @@ export const ButtonLabel = styled.span`
 export const Input = styled.input`
     display: inline-block;
     width: 100%;
+    height: 25px;
     font: inherit;
     font-size: 14px;    
     border: 1px solid tomato;
@@ -55,4 +58,8 @@ export const Input = styled.input`
             opacity: 0.4;
             font: inherit;
         }
+    `
+
+export const Label = styled.label`
+    width: 50%;
     `

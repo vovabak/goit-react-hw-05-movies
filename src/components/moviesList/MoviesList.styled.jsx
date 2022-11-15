@@ -8,20 +8,29 @@ export const List = styled.ul`
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 10px;
     margin: 0 auto;    
-    padding: 0;
-    list-style: none;    
+    padding: 10px 0;
+    list-style: none;
+    border-bottom: 1px solid tomato;
+    background-color: #fffbf5;
     `
 
-export const Item = styled.li`
-    
+export const Item = styled.li`    
     width: 200px;
-    margin-left: auto;
-    margin-right: auto;    
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        :hover, :focus {            
+            transform: scale(1.05);
+        }
     `
 
 export const Title = styled.h1`
     margin: auto 0;
-    padding: 5px 10px;
+    padding: 10px 10px 10px 10px;
     text-align: center;
     font-size: 20px;    
     `
@@ -34,6 +43,7 @@ export const Link = styled(NavLink)`
     text-decoration: none;
     cursor: inherit;
     color: inherit;
+    outline: none;    
     `
 
 export const Poster = styled.img`
@@ -42,4 +52,3 @@ export const Poster = styled.img`
     height: 300px;
     object-fit: cover;
     `
-    

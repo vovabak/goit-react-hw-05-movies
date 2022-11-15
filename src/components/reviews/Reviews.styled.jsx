@@ -19,17 +19,13 @@ export const Item = styled.li`
 
     p {
         margin: 0;
-        padding: 20px 20px;        
+        padding: 20px 20px;
     }
 
     a {
         display: inline-block;
         text-decoration: none;
-        padding: 5px 10px 10px 10px; 
-
-        // :hover, :focus {
-        //     color: gray;
-        // }
+        padding: 5px 10px 10px 10px;
     }
 
     :nth-child(2n) {

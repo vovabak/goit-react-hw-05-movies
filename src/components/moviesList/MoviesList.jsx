@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 import { List, Item, Title, Link, Poster } from "./MoviesList.styled";
+
 
 export const MoviesList = ({ movies }) => {
     const location = useLocation();
@@ -15,4 +17,12 @@ export const MoviesList = ({ movies }) => {
         }
         </List>
     )
+}
+
+MoviesList.propTypes = {
+    movies: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        poster_path: PropTypes.string.isRequired,
+    })).isRequired,
 }

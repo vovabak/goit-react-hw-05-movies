@@ -1,7 +1,10 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { SiThemoviedatabase } from 'react-icons/si';
 import { IconContext } from "react-icons";
+import { Loader } from "components/loader/Loader";
 import { Container, Header, Link, Nav, Logo } from "./SharedLayout.styled";
 
 export const SharedLayout = () => {
@@ -12,7 +15,7 @@ export const SharedLayout = () => {
             <Logo>
               <IconContext.Provider
                             value={{
-                                    size: '10%',
+                                    size: '100%',
                                     style: { verticalAlign: 'middle' }
                                 }}>
                             <SiThemoviedatabase />
@@ -23,9 +26,12 @@ export const SharedLayout = () => {
                 <Link to='/movies'>Movies</Link>        
             </Nav>
         </Header>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader/>}>
             <Outlet />
         </Suspense>
+        <ToastContainer
+          limit={3}
+        />
     </Container>
   );
 };
