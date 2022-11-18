@@ -1,5 +1,5 @@
 import { useParams, Outlet, useLocation } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { getMovieById } from "api/Api";
 import { Main, Link, Info, Poster, Thumb, Title, Text } from "./MovieDetails.styled";
 
@@ -35,7 +35,9 @@ const MovieDetails = () => {
             </Thumb>
             <Link to={'cast'}>Cast</Link>
             <Link to={'reviews'} style={{marginLeft: '10px'}}>Reviews</Link>
-            <Outlet context={id} />            
+            <Suspense>
+                <Outlet context={id} />
+            </Suspense>
         </Main>
     )
 }
