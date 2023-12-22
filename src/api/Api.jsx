@@ -3,7 +3,7 @@ import axios from "axios";
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
 const params = {        
-        api_key: '3102fd9d415f7daf1e30271b3b4dfac5',        
+        api_key: '2fb750d568eb262625e8479b2db30963',        
     }
 
 export async function getMovieTrends(page, media_type = 'movie', time_window = 'week') {
